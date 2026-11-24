@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>山頂許願樹 · 許願</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=ZCOOL+XiaoWei&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/phone.css" />
+  </head>
+  <body>
+    <main class="phone" id="app">
+      <header class="top">
+        <p class="brand">HSBC</p>
+        <h1>山頂許願樹</h1>
+        <p class="sub" id="subtitle">選擇願望，向上滑動投出</p>
+      </header>
+
+      <section class="wish-picker" id="wishPicker" aria-label="選擇願望">
+        <!-- filled by JS -->
+      </section>
+
+      <section class="throw-zone" id="throwZone">
+        <div class="guide-arrow" aria-hidden="true">↑</div>
+        <div class="orange" id="orange" role="button" aria-label="向上滑動投出願望" tabindex="0">
+          <div class="orange-body">
+            <span class="leaf"></span>
+            <span class="tag" id="wishTag">健康</span>
+          </div>
+        </div>
+        <p class="instruction" id="instruction">按住橘子 · 向上滑動</p>
+      </section>
+
+      <footer class="bar">
+        <p class="conn" id="conn">連接中…</p>
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+      </footer>
+    </main>
+
+    <div class="gate" id="gate" hidden>
+      <div class="gate-card">
+        <h2>輸入房間碼</h2>
+        <p>請掃描大屏上的 QR，或手動輸入房間碼</p>
+        <input id="roomInput" maxlength="8" autocomplete="off" autocapitalize="characters" placeholder="例如 A3K7P" />
+        <button type="button" id="joinBtn">加入許願</button>
+        <p class="gate-error" id="gateError"></p>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/phone.js"></script>
+  </body>
+</html>
